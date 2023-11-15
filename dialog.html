@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dialog Box </title>
+  <style>
+    body {
+      background-image: url('2.jpg'); 
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #dialog-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #dialog-box {
+      background-position: center;
+      color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #dialog-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #text-input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    .dialog-button {
+      background-color: #3498db;
+      color: #fff;
+      border: 2px;
+      padding: 10px 20px;
+      border-radius:6px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<button id="open-dialog-button" onclick="openDialog()">Open Dialog</button>
+
+<div id="dialog-overlay">
+  <div id="dialog-box">
+    <div id="dialog-title">Dialog Title</div>
+    <textarea id="text-input" placeholder="Enter text here..."></textarea>
+    <button class="dialog-button" onclick="closeDialog()">Close</button>
+    <button class="dialog-button" onclick="submitDialog()">Submit</button>
+  </div>
+</div>
+
+<script>
+  function openDialog() {
+    document.getElementById('dialog-overlay').style.display = 'flex';
+  }
+
+  function closeDialog() {
+    document.getElementById('dialog-overlay').style.display = 'none';
+  }
+
+  function submitDialog() {
+    // Handle the submitted data here
+    alert('Submitted: ' + document.getElementById('text-input').value);
+    closeDialog();
+  }
+</script>
+
+</body>
+</html>
